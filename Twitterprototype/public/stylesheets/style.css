@@ -1,0 +1,20 @@
+
+.image-div {
+    position: relative;
+}
+
+.button1 {
+    position: absolute;
+}
+
+.classic_button_next {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.classic_button_prev {
+    position: absolute;
+    right: 88px;
+    top: 5px;
+}

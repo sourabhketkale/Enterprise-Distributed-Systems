@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="public/javascripts/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="public/javascripts/scripts.js"></script>
+    <title>Signup page</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="/javascripts/controllers.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+
+
+    <meta http-equiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+
+</head>
+<body ng-app="signup" ng-controller="signupCtrl">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/images/welcome_upperpanel.png" alt="Mountain View" style="width:1730px;height:158px;">
+            <!-- <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">-->
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <b><h3><span class="label label-default" style="background-color: #2aabd2">JOIN TWITTER TODAY</span>
+                        </h3></b>
+                    <br><br>
+                    <form role="form">
+                        <div class="form-group">
+
+                            <label for="exampleInputEmail1">
+                                Username
+                            </label>
+                            <input type="text" class="form-control" id="username" ng-model="username"
+                                   placeholder="Username">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Password
+                            </label>
+                            <input type="password" class="form-control" id="password" ng-model="password"
+                                   placeholder="Password">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Firstname
+                            </label>
+                            <input type="text" class="form-control" id="firstname" ng-model="firstname"
+                                   placeholder="First name">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Lastname
+                            </label>
+                            <input type="text" class="form-control" id="lastname" ng-model="lastname"
+                                   placeholder="Last name">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Email id
+                            </label>
+                            <input type="email" class="form-control" id="email" ng-model="email"
+                                   placeholder="abc@domain.com">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Location
+                            </label>
+                            <input type="text" class="form-control" id="location" ng-model="location"
+                                   placeholder="eg:San jose">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="exampleInputPassword1">
+                                Phone Number
+                            </label>
+                            <input type="text" class="form-control" id="phone" ng-model="phone"
+                                   placeholder="eg: xxx-xxx-xxxx">
+                        </div>
+                        <div class="form-group">
+
+
+                        </div>
+                        <div class="checkbox">
+
+                            <label>
+
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" type="button" ng-click="submit()">
+                            Register
+                        </button>
+                        <a ng-href="index.ejs" ng-click="gotoindex()"> &nbsp&nbsp&nbsp&nbspGo to home page</a>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var signupapp = angular.module("signup", []);
+
+    signupapp.controller('signupCtrl', function ($scope, $http) {
+        alert('in controller signup');
+        $scope.register = function () {
+            alert('in controller signup');
+            $http({
+                method: "POST",
+                url: "/register",
+                data: {
+
+                    firstname: $scope.firstname,
+                    lastname: $scope.lastname,
+                    username: $scope.username,
+                    email: $scope.email,
+                    password: $scope.password
+                    location: $scope.location,
+                    phone: $scope.phone
+                }
+
+            }).success(function (res) {
+                alert('reached success signup ');
+                if (res.check == true) {
+                    alert('reached success if');
+                    window.location = '/index';
+                }
+            }).error(function (err) {
+
+                alert('Please enter the correct creds !!');
+            });
+        };
+        ;
+
+        $scope.gotoindex = function () {
+
+            window.location = '/index';
+
+        }
+    });
+
+</script>
+
+</body>
+</html>

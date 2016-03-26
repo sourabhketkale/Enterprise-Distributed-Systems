@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="public/javascripts/bootstrap.min.js"></script>
+    <script src="public/javascripts/bootstrap.min.js"></script>
+    <script src="public/javascripts/scripts.js"></script>
+    <title>Dashboard</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="/javascripts/controllers.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+
+
+    <meta http-equiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+
+
+</head>
+<body ng-app="profile" ng-controller="profileCtrl" ng-init="tweetprofile()">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-centre">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="gotoprofile()">Profile</a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="gotodashboard()">Dashboard</a>
+                        </li>
+
+                    </ul>
+                    <!--<form class="navbar-form navbar-right" role="search">
+                        <div class="form-group ">
+                            <input type="text" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-default">
+                            Submit
+                        </button>
+                    </form>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li>
+                            <a href="#">Link</a>
+                        </li>-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options<strong
+                                        class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Account</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a ng-href="#modal-container-4072" ng-click="singoutoperation()">Sign Out</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group ">
+                            <input type="text" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-default">
+                            Submit
+                        </button>
+                    </form>
+
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<table class="table-responsive"  style="border:thin;">
+                <tbody><tr><td style="height:100px">-->
+            <div style="border:thin;"><img src="/images/welcome_upperpanel.png" style="width:1730px;height:228px;">
+            </div>
+            <!--         <img src="/images/welcome_upperpanel.png" style="width:1730px;height:228px;">
+                 </td></tr></tbody>
+         </table>-->
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-4">
+                        <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <br>
+                                <b><a href="">@<%= username1 %></a></b><br>
+                                <b><a href=""><%= firstname1 %> <%= lastname1 %></a></b><br>
+                                <b><a href=""><span class="glyphicons glyphicons-nearby-square"><%= location1 %></span></a><br></b>
+                                <b><a href=""><%= email1 %></a></b>
+
+                            </div>
+                            <div class="col-md-12">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a id="modal-403072" href="#modal-container-403072" role="button" class="btn"
+                               ng-click="following()" data-toggle="modal">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFollowing</a>
+
+                            <div class="modal fade" id="modal-container-403072" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                ×
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">
+                                                Following
+                                            </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div ng-repeat="result in followinglist">
+
+                                                <div> @{{result.following}}</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">
+                                                Save changes
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <a id="modal-165184" ng-href="#modal-container-165184" role="button" class="btn"
+                               ng-click="followers()" data-toggle="modal">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFollowers</a>
+
+                            <div class="modal fade" id="modal-container-165184" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                ×
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">
+                                                Followers
+                                            </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div ng-repeat="result in followerlist">
+
+                                                <div class="col-md-6 "> @{{result.username}}</div>
+                                                <div class="col-sm-6 ">
+                                                    <button class="btn btn-primary focus btn-xs"
+                                                            ng-click="addtofollow(result.username)">Follow
+                                                    </button>
+                                                    <br></div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">
+                                                Save changes
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <textarea class="form-control" rows="3" ng-model="tweettext" maxlength="140"
+                              placeholder="What's Happening?"></textarea>
+                    <br>
+                    <p align="right">
+                        <button class="btn btn-primary" type="button" ng-click="tweet()">Tweet</button>
+                    </p>
+                </div>
+            </div>
+            <div ng-repeat="data in resultlist">
+
+                <div class="panel panel-primary"><b><span id="name"> @{{data.username}}  </span></b>
+                    <!--<span id = "handle"> @=result.username</span>-->
+                    <div class="panel-body" id="tweetdisplay"> {{ data.tweettext}}</div>
+                </div>
+                <!--<button type="button" class="btn btn-default" style="border:hidden;" style="height:1px;" >
+                    <span class="glyphicon glyphicon-unshare"></span>
+                </button> &nbsp&nbsp&nbsp
+                <button type="button" class="btn btn-default" style="border:hidden;" style="height:1px;" >
+                    <span class="glyphicon glyphicon-retweet"></span>
+                </button>&nbsp&nbsp&nbsp
+                <button type="button" class="btn btn-default" style="border:hidden;" style="height:1px;" >
+                    <span class="glyphicon glyphicon-heart-empty"></span>
+                </button>-->
+                <a href="#">
+                    <span class="glyphicon glyphicon-retweet"></span>
+                </a>&nbsp&nbsp&nbsp
+                <a href="#">
+                    <span class="glyphicon glyphicon-unshare"></span>
+                </a>&nbsp&nbsp&nbsp
+                <a href="#">
+                    <span class="glyphicon glyphicon-heart-empty"></span>
+                </a>
+
+            </div>
+
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+<script>
+    var profile = angular.module("profile", []);
+    profile.controller('profileCtrl', function ($scope, $http) {
+
+
+        //get all user tweets
+        $scope.tweetprofile = function () {
+            alert('entered controller methoh tweetprofile');
+            /*$scope.usernamelist = [];
+             $scope.tweettextlist = [];*/
+            $scope.resultlist = [];
+
+            $http({
+
+                method: "GET",
+                url: "/getallusertweets",
+                data: {}
+            }).success(function (res) {
+                //  alert('entered success');
+                /*$scope.usernamelist = res.result.username;
+                 $scope.tweettextlist = res.result.tweettext;*/
+                $scope.resultlist = res.result;
+
+            }).error(function (err) {
+
+                alert('error on profile!!');
+            });
+
+        };
+        ;
+        //Get user followers
+        $scope.followers = function () {
+            $scope.followerlist = [];
+            //alert('in followers ctrl');
+            $http({
+
+                method: "GET",
+                url: "/followerlist",
+                data: {}
+            }).success(function (res) {
+                $scope.followerlist = res.followerlist;
+                //alert(res.followinglist);
+
+            }).error(function (err) {
+
+                alert('error on profile!!');
+            });
+
+        };
+        ;
+        //get all user following
+        $scope.following = function () {
+            $scope.followinglist = [];
+            //alert('following controller');
+            $http({
+
+                method: "GET",
+                url: "/followinglist",
+                data: {}
+            }).success(function (res) {
+                $scope.followinglist = res.followinglist;
+
+            }).error(function (err) {
+
+                alert('error on profile!!');
+            });
+
+        };
+        ;
+        //the ajax call to carry the session value and navigate
+        $scope.gotodashboard = function () {
+            $http({
+
+                method: "GET",
+                url: "/dashboardredirect",
+                data: {}
+            }).success(function (res) {
+                if (res.check == true) {
+                    // alert('going to profile');
+                    window.location = '/dashboard';
+                }
+            }).error(function (err) {
+
+                alert('error on profile!!');
+            });
+            //window.location = '/gotoprofile';
+
+        };
+        ;
+        // follow button implementation
+        $scope.addtofollow = function (followuser) {
+            alert('following:' + followuser);
+            $http({
+
+                method: "POST",
+                url: "/addtofollow",
+                data: {
+
+                    followuser: followuser
+
+                }
+            }).success(function (res) {
+
+                alert(res.check);
+                //  $scope.result1 = res.result;
+
+            }).error(function (err) {
+
+                alert('error on dashboard!!');
+            });
+
+        }
+    });
+
+</script>
+
+</body>
+</html>
